@@ -3,7 +3,6 @@ import { Instagram } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
-import ReservationModal from "@/components/ReservationModal";
 import Gallery from "@/components/Gallery";
 import galleryHero from "@/assets/gallery-hero.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -20,7 +19,7 @@ const GalleryPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation onReserveClick={() => setIsReservationOpen(true)} />
+      <Navigation />
       <PageHero
         title="Gallery"
         subtitle="A visual journey through our culinary creations and warm ambiance"
@@ -48,7 +47,7 @@ const GalleryPage = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-lg transition-colors"
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram />
               @savoryhaven
             </a>
           </div>
@@ -81,10 +80,6 @@ const GalleryPage = () => {
       </section>
 
       <Footer />
-      <ReservationModal
-        open={isReservationOpen}
-        onOpenChange={setIsReservationOpen}
-      />
     </div>
   );
 };

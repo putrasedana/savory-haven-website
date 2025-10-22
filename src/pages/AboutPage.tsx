@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Leaf, Heart, Award, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
-import ReservationModal from "@/components/ReservationModal";
 import { Card, CardContent } from "@/components/ui/card";
 import aboutHero from "@/assets/about-hero.jpg";
 import chefImage from "@/assets/chef-portrait.jpg";
@@ -12,8 +10,6 @@ import manager from "@/assets/team/manager.jpg";
 import sommelier from "@/assets/team/sommelier.jpg";
 
 const AboutPage = () => {
-  const [isReservationOpen, setIsReservationOpen] = useState(false);
-
   const team = [
     {
       name: "Maria Rodriguez",
@@ -39,28 +35,32 @@ const AboutPage = () => {
     {
       icon: Leaf,
       title: "Sustainability",
-      description: "We source ingredients from local farms, supporting our community and reducing our environmental impact.",
+      description:
+        "We source ingredients from local farms, supporting our community and reducing our environmental impact.",
     },
     {
       icon: Heart,
       title: "Passion",
-      description: "Every dish is crafted with love and attention to detail, honoring culinary traditions while embracing innovation.",
+      description:
+        "Every dish is crafted with love and attention to detail, honoring culinary traditions while embracing innovation.",
     },
     {
       icon: Award,
       title: "Excellence",
-      description: "We maintain the highest standards in food quality, service, and ambiance to exceed your expectations.",
+      description:
+        "We maintain the highest standards in food quality, service, and ambiance to exceed your expectations.",
     },
     {
       icon: Users,
       title: "Community",
-      description: "We're more than a restaurant – we're a gathering place where memories are made and friendships flourish.",
+      description:
+        "We're more than a restaurant – we're a gathering place where memories are made and friendships flourish.",
     },
   ];
 
   return (
     <div className="min-h-screen">
-      <Navigation onReserveClick={() => setIsReservationOpen(true)} />
+      <Navigation />
       <PageHero
         title="About Us"
         subtitle="Our passion for food and community drives everything we do"
@@ -76,27 +76,31 @@ const AboutPage = () => {
                 Our Story
               </h2>
               <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
-                Savory Haven opened its doors in 2009 with a simple yet profound mission: 
-                to bring authentic, farm-fresh cuisine to our community. What started as 
-                a small family restaurant has grown into a beloved neighborhood destination, 
-                known for our commitment to quality and warm hospitality.
+                Savory Haven opened its doors in 2009 with a simple yet profound
+                mission: to bring authentic, farm-fresh cuisine to our
+                community. What started as a small family restaurant has grown
+                into a beloved neighborhood destination, known for our
+                commitment to quality and warm hospitality.
               </p>
               <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
-                Our founder and head chef, Maria Rodriguez, grew up in her grandmother's 
-                kitchen, learning the secrets of traditional cooking that have been passed 
-                down through generations. She combines these time-honored techniques with 
-                modern culinary innovation to create dishes that are both familiar and exciting.
+                Our founder and head chef, Maria Rodriguez, grew up in her
+                grandmother's kitchen, learning the secrets of traditional
+                cooking that have been passed down through generations. She
+                combines these time-honored techniques with modern culinary
+                innovation to create dishes that are both familiar and exciting.
               </p>
               <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
-                Today, Savory Haven continues to evolve while staying true to our roots. 
-                We work closely with local farmers and artisans, ensuring that every 
-                ingredient meets our exacting standards. Our menu changes with the seasons, 
-                celebrating the best that each time of year has to offer.
+                Today, Savory Haven continues to evolve while staying true to
+                our roots. We work closely with local farmers and artisans,
+                ensuring that every ingredient meets our exacting standards. Our
+                menu changes with the seasons, celebrating the best that each
+                time of year has to offer.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                More than just a place to eat, Savory Haven is where the community comes 
-                together – to celebrate milestones, enjoy everyday moments, and create 
-                lasting memories over exceptional food.
+                More than just a place to eat, Savory Haven is where the
+                community comes together – to celebrate milestones, enjoy
+                everyday moments, and create lasting memories over exceptional
+                food.
               </p>
             </div>
 
@@ -141,7 +145,9 @@ const AboutPage = () => {
                 </div>
                 <CardContent className="pt-6">
                   <h3 className="font-semibold text-xl mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-3">{member.title}</p>
+                  <p className="text-primary font-medium mb-3">
+                    {member.title}
+                  </p>
                   <p className="text-muted-foreground">{member.bio}</p>
                 </CardContent>
               </Card>
@@ -171,7 +177,9 @@ const AboutPage = () => {
                       <value.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl mb-2">{value.title}</h3>
+                      <h3 className="font-semibold text-xl mb-2">
+                        {value.title}
+                      </h3>
                       <p className="text-muted-foreground leading-relaxed">
                         {value.description}
                       </p>
@@ -185,7 +193,6 @@ const AboutPage = () => {
       </section>
 
       <Footer />
-      <ReservationModal open={isReservationOpen} onOpenChange={setIsReservationOpen} />
     </div>
   );
 };

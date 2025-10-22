@@ -2,12 +2,9 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { getReservationMailto } from "@/lib/emailTemplates";
 
-interface NavigationProps {
-  onReserveClick: () => void;
-}
-
-const Navigation = ({ onReserveClick }: NavigationProps) => {
+const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -60,13 +57,8 @@ const Navigation = ({ onReserveClick }: NavigationProps) => {
                 {link.label}
               </Link>
             ))}
-            <Button
-              onClick={onReserveClick}
-              variant="default"
-              size="sm"
-              className="text-white"
-            >
-              Reserve Table
+            <Button variant="default" size="sm" className="text-white">
+              <a href={getReservationMailto()}>Reserve Table</a>
             </Button>
           </div>
 
@@ -96,12 +88,8 @@ const Navigation = ({ onReserveClick }: NavigationProps) => {
               </Link>
             ))}
             <div className="px-4 pt-3">
-              <Button
-                onClick={onReserveClick}
-                variant="default"
-                className="w-full text-white"
-              >
-                Reserve Table
+              <Button variant="default" className="w-full text-white">
+                <a href={getReservationMailto()}>Reserve Table</a>
               </Button>
             </div>
           </div>

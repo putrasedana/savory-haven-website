@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Star, Leaf, Flame, Download } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
-import ReservationModal from "@/components/ReservationModal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,8 +16,6 @@ import ribeye from "@/assets/menu/ribeye.jpg";
 import lavaCake from "@/assets/menu/lava-cake.jpg";
 
 const MenuPage = () => {
-  const [isReservationOpen, setIsReservationOpen] = useState(false);
-
   const menuCategories = [
     {
       name: "Starters",
@@ -184,7 +180,7 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation onReserveClick={() => setIsReservationOpen(true)} />
+      <Navigation />
       <PageHero
         title="Our Menu"
         subtitle="Savor dishes crafted from the finest locally-sourced ingredients"
@@ -303,10 +299,6 @@ const MenuPage = () => {
       </section>
 
       <Footer />
-      <ReservationModal
-        open={isReservationOpen}
-        onOpenChange={setIsReservationOpen}
-      />
     </div>
   );
 };

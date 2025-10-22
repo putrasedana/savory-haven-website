@@ -1,62 +1,25 @@
-import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import Navigation from "@/components/Navigation";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
-import ReservationModal from "@/components/ReservationModal";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
 import contactHero from "@/assets/contact-hero.jpg";
 
 const ContactPage = () => {
-  const [isReservationOpen, setIsReservationOpen] = useState(false);
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    guests: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you shortly.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      date: "",
-      guests: "",
-      message: "",
-    });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const openingHours = [
     { day: "Monday - Thursday", hours: "11:00 AM - 10:00 PM" },
     { day: "Friday - Saturday", hours: "11:00 AM - 11:00 PM" },
     { day: "Sunday", hours: "11:00 AM - 9:00 PM" },
   ];
 
+  const whatsappNumber = "6281234567890000000";
+  const emailAddress = "hello@savoryhaven15416146514.com";
+
   return (
     <div className="min-h-screen">
-      <Navigation onReserveClick={() => setIsReservationOpen(true)} />
+      <Navigation />
       <PageHero
         title="Contact Us"
         subtitle="We'd love to hear from you"
@@ -66,105 +29,70 @@ const ContactPage = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
+            {/* Contact Options */}
             <div className="animate-fade-in">
               <h2 className="font-display text-3xl font-bold mb-6">
-                Send Us a Message
+                Get in Touch
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                    Phone
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="(123) 456-7890"
-                  />
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="date" className="block text-sm font-medium mb-2">
-                      Preferred Date
-                    </label>
-                    <Input
-                      id="date"
-                      name="date"
-                      type="date"
-                      value={formData.date}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="guests" className="block text-sm font-medium mb-2">
-                      Number of Guests
-                    </label>
-                    <Input
-                      id="guests"
-                      name="guests"
-                      type="number"
-                      min="1"
-                      value={formData.guests}
-                      onChange={handleChange}
-                      placeholder="2"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Tell us about your reservation or any special requests..."
-                    rows={5}
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full gap-2">
-                  <Send className="w-5 h-5" />
-                  Send Message
+              <p className="text-muted-foreground mb-8">
+                Whether you’d like to make a reservation, host a special event,
+                or just have a question, feel free to contact us directly using
+                one of the options below.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                {/* WhatsApp Button */}
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-green-600 hover:bg-green-700 gap-3 px-6 py-4 text-normal text-white"
+                >
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=Hello%20Savory%20Haven,%20I'd%20like%20to%20make%20a%20reservation.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center"
+                  >
+                    <FaWhatsapp style={{ width: "1.6rem", height: "1.6rem" }} />
+                    {/* ⬅️ forced size */}
+                    <span>Chat on WhatsApp</span>
+                  </a>
                 </Button>
-              </form>
+
+                {/* Gmail Button */}
+                <Button
+                  asChild
+                  size="lg"
+                  variant="secondary"
+                  className="gap-3 px-6 py-4 text-normal text-white"
+                >
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+                      emailAddress
+                    )}&su=${encodeURIComponent(
+                      "Inquiry"
+                    )}&body=${encodeURIComponent("Hello Savory Haven,")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center"
+                  >
+                    <FaEnvelope
+                      style={{
+                        width: "1.5rem",
+                        height: "1.5rem",
+                        color: "white",
+                      }}
+                    />
+                    <span>Send Gmail</span>
+                  </a>
+                </Button>
+              </div>
             </div>
 
             {/* Contact Information */}
             <div className="space-y-6 animate-fade-in">
               <h2 className="font-display text-3xl font-bold mb-6">
-                Get in Touch
+                Our Information
               </h2>
 
               <Card>
@@ -208,10 +136,10 @@ const ContactPage = () => {
                       <div>
                         <h3 className="font-semibold text-lg mb-1">Email</h3>
                         <a
-                          href="mailto:hello@savoryhaven.com"
+                          href={`mailto:${emailAddress}`}
                           className="text-primary hover:underline"
                         >
-                          hello@savoryhaven.com
+                          {emailAddress}
                         </a>
                       </div>
                     </div>
@@ -226,14 +154,18 @@ const ContactPage = () => {
                       <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-lg mb-3">Opening Hours</h3>
+                      <h3 className="font-semibold text-lg mb-3">
+                        Opening Hours
+                      </h3>
                       <div className="space-y-2">
                         {openingHours.map((schedule, index) => (
                           <div key={index} className="flex justify-between">
                             <span className="text-muted-foreground">
                               {schedule.day}
                             </span>
-                            <span className="font-medium">{schedule.hours}</span>
+                            <span className="font-medium">
+                              {schedule.hours}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -263,7 +195,6 @@ const ContactPage = () => {
       </section>
 
       <Footer />
-      <ReservationModal open={isReservationOpen} onOpenChange={setIsReservationOpen} />
     </div>
   );
 };

@@ -1,20 +1,17 @@
-import { useState } from "react";
 import { Leaf, Heart, Award, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
-import ReservationModal from "@/components/ReservationModal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import salmonImg from "@/assets/menu/salmon.jpg";
 import ribeye from "@/assets/menu/ribeye.jpg";
 import risotto from "@/assets/menu/risotto.jpg";
+import { getReservationMailto } from "@/lib/emailTemplates";
 
 const Home = () => {
-  const [isReservationOpen, setIsReservationOpen] = useState(false);
-
   const features = [
     {
       icon: Leaf,
@@ -79,8 +76,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation onReserveClick={() => setIsReservationOpen(true)} />
-      <Hero onReserveClick={() => setIsReservationOpen(true)} />
+      <Navigation />
+      <Hero />
 
       {/* Welcome Section */}
       <section className="py-24 bg-gradient-to-b from-background to-muted/30">
@@ -210,22 +207,13 @@ const Home = () => {
             Reserve your table today and discover why we're the neighborhood's
             favorite dining destination
           </p>
-          <Button
-            size="lg"
-            variant="secondary"
-            onClick={() => setIsReservationOpen(true)}
-            className="text-lg px-8"
-          >
-            Make a Reservation
+          <Button size="lg" variant="secondary" className="text-lg px-8">
+            <a href={getReservationMailto()}>Make a Reservation</a>
           </Button>
         </div>
       </section>
 
       <Footer />
-      <ReservationModal
-        open={isReservationOpen}
-        onOpenChange={setIsReservationOpen}
-      />
     </div>
   );
 };
