@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="mx-auto">
+          <div>
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {[
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="mx-auto">
+          <div>
             <h4 className="font-semibold text-lg mb-4">Contact</h4>
             <ul className="space-y-2 text-background/80">
               <li>350 5th Avenue</li>

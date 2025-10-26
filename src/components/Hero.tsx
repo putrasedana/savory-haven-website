@@ -39,7 +39,11 @@ Thank you!`;
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link to="/menu">
-            <Button size="lg" variant="secondary" className="text-lg px-8">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="text-lg px-8 w-full"
+            >
               View Menu
             </Button>
           </Link>
