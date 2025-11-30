@@ -81,7 +81,7 @@ const Home = () => {
 
       {/* Welcome Section */}
       <section className="py-24 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="animate-fade-in">
             <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 text-orange-500">
               Welcome to Savory Haven
@@ -127,7 +127,7 @@ const Home = () => {
 
       {/* Featured Dishes */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
               Our Signature Dishes
@@ -173,7 +173,7 @@ const Home = () => {
 
       {/* Why Choose Us */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
               Why Choose Savory Haven
@@ -199,7 +199,7 @@ const Home = () => {
 
       {/* Call to Action */}
       <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
             Ready to Experience Savory Haven?
           </h2>

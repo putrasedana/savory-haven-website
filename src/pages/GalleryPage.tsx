@@ -53,7 +53,7 @@ const GalleryPage = () => {
           </div>
 
           {/* Instagram Grid Placeholder */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               gallery1,
               gallery2,
